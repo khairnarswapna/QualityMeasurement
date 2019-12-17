@@ -5,7 +5,7 @@ public class Length {
 
     private static final double FEET_TO_INCH = 12.0;
 
-    enum Unit {FEET, INCH;}
+    enum Unit {FEET, INCH}
 
     private final Unit unit;
     private final double value;
@@ -20,13 +20,19 @@ public class Length {
             return Double.compare(this.value, thatQuantity.value) == 0;
         if (this.unit.equals(Unit.FEET) && thatQuantity.unit.equals(Unit.INCH))
             return Double.compare(this.value * FEET_TO_INCH, thatQuantity.value) == 0;
+        if (this.unit.equals(Unit.INCH) && thatQuantity.unit.equals(Unit.INCH))
+            return Double.compare(this.value, thatQuantity.value) == 0;
         return false;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Length)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Length)) {
+            return false;
+        }
         Length length = (Length) o;
         return Double.compare(length.value, value) == 0 &&
                 unit == length.unit;
