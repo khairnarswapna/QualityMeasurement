@@ -1,7 +1,5 @@
 package com.qaulitymeasurment;
 
-import java.util.Objects;
-
 public class Feet {
     double value;
 
