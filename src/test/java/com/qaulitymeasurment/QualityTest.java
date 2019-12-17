@@ -144,4 +144,61 @@ public class QualityTest {
         Assert.assertTrue(compareCheck);
     }
 
+    @Test
+    public void given12InchAnd1Feet_ShouldReturnNotEqualLength() {
+        Length inch = new Length(Length.Unit.INCH, 12.0);
+        Length feet = new Length(Length.Unit.FEET, 1.0);
+        boolean compareCheck = inch.compare(feet);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given3FeetAnd1Yard_ShouldReturnEqualLength() {
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        Length feet = new Length(Length.Unit.FEET, 3.0);
+        boolean compareCheck = yard.compare(feet);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1FeetAnd3Yard_ShouldReturnNotEqualLength() {
+        Length yard = new Length(Length.Unit.YARD, 3.0);
+        Length feet = new Length(Length.Unit.FEET, 1.0);
+        boolean compareCheck = yard.compare(feet);
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void given1InchAnd1Yard_ShouldReturnNotEqualLength() {
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        Length inch = new Length(Length.Unit.INCH, 1.0);
+        boolean compareCheck = yard.compare(inch);
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void given1FeetAnd36Inch_ShouldReturnEqualLength() {
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        Length inch = new Length(Length.Unit.INCH, 36.0);
+        boolean compareCheck = yard.compare(inch);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given36InchAnd1Yard_ShouldReturnEqualLength() {
+        Length inch = new Length(Length.Unit.INCH, 36.0);
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        boolean compareCheck = inch.compare(yard);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1YardAnd3Feet_ShouldReturnEqualLength() {
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        Length feet = new Length(Length.Unit.FEET, 3.0);
+        boolean compareCheck = yard.compare(feet);
+        Assert.assertTrue(compareCheck);
+    }
+
+
 }
