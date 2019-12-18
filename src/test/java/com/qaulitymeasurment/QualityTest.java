@@ -177,7 +177,7 @@ public class QualityTest {
     }
 
     @Test
-    public void given1FeetAnd36Inch_ShouldReturnEqualLength() {
+    public void given1YardAnd36Inch_ShouldReturnEqualLength() {
         Length yard = new Length(Length.Unit.YARD, 1.0);
         Length inch = new Length(Length.Unit.INCH, 36.0);
         boolean compareCheck = yard.compare(inch);
@@ -199,6 +199,5 @@ public class QualityTest {
         boolean compareCheck = yard.compare(feet);
         Assert.assertTrue(compareCheck);
     }
-
 
 }
