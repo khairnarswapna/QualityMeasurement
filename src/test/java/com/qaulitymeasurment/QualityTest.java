@@ -264,4 +264,20 @@ public class QualityTest {
         Assert.assertEquals(compareAddition, 3, 0.0);
     }
 
+    @Test
+    public void given1GallonAnd3_78Litre_ShouldReturnEquals() {
+        Length gallon = new Length(VolumeMeasurement.GALLON, 1.0);
+        Length litre = new Length(VolumeMeasurement.LITRE, 3.78);
+        boolean compareCheck = gallon.compareVolume(gallon, litre);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1LitreAnd1000ML_ShouldReturnEquals() {
+        Length litre = new Length(VolumeMeasurement.LITRE, 1.0);
+        Length milliLitre = new Length(VolumeMeasurement.MILLI_LITRE, 1000.0);
+        boolean compareCheck = litre.compareVolume(litre, milliLitre);
+        Assert.assertTrue(compareCheck);
+    }
+
 }

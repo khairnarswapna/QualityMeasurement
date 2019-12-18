@@ -2,11 +2,17 @@ package com.qaulitymeasurment;
 
 public class Length {
 
-    public final UnitMeasurement unit;
+    public UnitMeasurement unit = null;
+    public VolumeMeasurement volume = null;
     public final double value;
 
     public Length(UnitMeasurement unit, double value) {
         this.unit = unit;
+        this.value = value;
+    }
+
+    public Length(VolumeMeasurement volume, double value) {
+        this.volume = volume;
         this.value = value;
     }
 
@@ -16,6 +22,10 @@ public class Length {
 
     public Double addUnit(Length thisQuantity, Length thatQuantity) {
         return this.unit.additionOfUnits(thisQuantity, thatQuantity);
+    }
+
+    public boolean compareVolume(Length thisVolume, Length thatVolume) {
+        return this.volume.compareVolume(thisVolume, thatVolume);
     }
 
     @Override
