@@ -2,7 +2,7 @@ package com.qaulitymeasurment;
 
 public enum UnitMeasurement {
 
-    FEET(12.0), INCH(1.0), YARD(36.0);
+    FEET(30.48), INCH(2.54), YARD(91.44), CENTIMETER(1.0);
 
     private final double unitValue;
 

@@ -200,4 +200,36 @@ public class QualityTest {
         Assert.assertTrue(compareCheck);
     }
 
+    @Test
+    public void given1CentimeterAnd1Centimeter_ShouldReturnEqualLength() {
+        Length centimeter1 = new Length(UnitMeasurement.CENTIMETER, 2.0);
+        Length centimeter2 = new Length(UnitMeasurement.CENTIMETER, 2.0);
+        boolean compareCheck = centimeter1.compare(centimeter1, centimeter2);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given2InchAnd5Centimeter_ShouldReturnEqualLength() {
+        Length inch = new Length(UnitMeasurement.INCH, 2.0);
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
+        boolean compareCheck = inch.compare(inch, centimeter);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given5CentimeterAnd2Inch_ShouldReturnEqualLength() {
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
+        Length inch = new Length(UnitMeasurement.INCH, 2.0);
+        boolean compareCheck = centimeter.compare(centimeter, inch);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given5CentimeterAnd3Inch_ShouldReturnNotEqualLength() {
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
+        Length inch = new Length(UnitMeasurement.INCH, 3.0);
+        boolean compareCheck = centimeter.compare(centimeter, inch);
+        Assert.assertFalse(compareCheck);
+    }
+
 }
