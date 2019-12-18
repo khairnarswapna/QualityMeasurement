@@ -10,8 +10,8 @@ public class Length {
         this.value = value;
     }
 
-    public boolean compare(Length thisQuantity, Length thatQuantity) {
-        return this.unit.compare(thisQuantity, thatQuantity);
+    public boolean compareUnit(Length thisQuantity, Length thatQuantity) {
+        return this.unit.compareUnits(thisQuantity, thatQuantity);
     }
 
     public Double addUnit(Length thisQuantity, Length thatQuantity) {

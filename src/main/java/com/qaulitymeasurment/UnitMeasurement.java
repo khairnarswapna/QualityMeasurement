@@ -10,7 +10,7 @@ public enum UnitMeasurement {
         this.unitValue = unitValue;
     }
 
-    public boolean compare(Length l1, Length l2) {
+    public boolean compareUnits(Length l1, Length l2) {
         return (Double.compare(Math.round(l1.value * l1.unit.unitValue), Math.round(l2.value * l2.unit.unitValue))) == 0;
     }
 
