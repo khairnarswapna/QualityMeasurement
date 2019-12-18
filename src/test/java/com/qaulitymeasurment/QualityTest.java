@@ -211,15 +211,15 @@ public class QualityTest {
     @Test
     public void given2InchAnd5Centimeter_ShouldReturnEqualLength() {
         Length inch = new Length(UnitMeasurement.INCH, 2.0);
-        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.0);
         boolean compareCheck = inch.compare(inch, centimeter);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void given5CentimeterAnd2Inch_ShouldReturnEqualLength() {
-        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
-        Length inch = new Length(UnitMeasurement.INCH, 2.0);
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.0);
+        Length inch = new Length(UnitMeasurement.INCH, 1.968505);
         boolean compareCheck = centimeter.compare(centimeter, inch);
         Assert.assertTrue(compareCheck);
     }
