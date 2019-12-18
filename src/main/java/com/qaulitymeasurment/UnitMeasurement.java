@@ -2,25 +2,16 @@ package com.qaulitymeasurment;
 
 public enum UnitMeasurement {
 
-    FEET {
-        public double getUnitValue(double value) {
-            return value * FEET_TO_INCH;
-        }
-    },
-    INCH {
-        public double getUnitValue(double value) {
-            return value;
-        }
-    },
-    YARD {
-        public double getUnitValue(double value) {
-            return value * YARD_PER_INCH;
-        }
-    };
+    FEET(12.0), INCH(1.0), YARD(36.0);
 
-    public abstract double getUnitValue(double value);
+    private final double unitValue;
 
-    private static final double FEET_TO_INCH = 12.0;
-    private static final double YARD_PER_INCH = 36.0;
+    UnitMeasurement(double unitValue) {
+        this.unitValue = unitValue;
+    }
+
+    public boolean compare(Length l1, Length l2) {
+        return (Double.compare(l1.value * l1.unit.unitValue, l2.value * l2.unit.unitValue)) == 0;
+    }
 
 }

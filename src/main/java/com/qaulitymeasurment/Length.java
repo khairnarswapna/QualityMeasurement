@@ -2,18 +2,16 @@ package com.qaulitymeasurment;
 
 public class Length {
 
-    private final UnitMeasurement unit;
-    private final double value;
+    public final UnitMeasurement unit;
+    public final double value;
 
     public Length(UnitMeasurement unit, double value) {
         this.unit = unit;
         this.value = value;
     }
 
-    public boolean compare(Length thatQuantity) {
-        Double thisValue = this.unit.getUnitValue(this.value);
-        Double thatQuantityValue = thatQuantity.unit.getUnitValue(thatQuantity.value);
-        return thisValue.equals(thatQuantityValue);
+    public boolean compare(Length thisQuantity, Length thatQuantity) {
+        return this.unit.compare(thisQuantity, thatQuantity);
     }
 
     @Override
