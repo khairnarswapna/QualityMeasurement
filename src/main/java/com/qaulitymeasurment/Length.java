@@ -20,12 +20,16 @@ public class Length {
         return this.unit.compareUnits(thisQuantity, thatQuantity);
     }
 
+    public boolean compareVolume(Length thisVolume, Length thatVolume) {
+        return this.volume.compareVolume(thisVolume, thatVolume);
+    }
+
     public Double addUnit(Length thisQuantity, Length thatQuantity) {
         return this.unit.additionOfUnits(thisQuantity, thatQuantity);
     }
 
-    public boolean compareVolume(Length thisVolume, Length thatVolume) {
-        return this.volume.compareVolume(thisVolume, thatVolume);
+    public Double addVolumes(Length thisVolume, Length thatVolume) {
+        return this.volume.additionOfVolumes(thisVolume, thatVolume);
     }
 
     @Override

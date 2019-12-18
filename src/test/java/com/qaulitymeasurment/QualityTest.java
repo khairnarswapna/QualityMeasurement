@@ -280,4 +280,20 @@ public class QualityTest {
         Assert.assertTrue(compareCheck);
     }
 
+    @Test
+    public void given1GallonAnd3_78Litre_ShouldReturnAdditionInLitres() {
+        Length gallon = new Length(VolumeMeasurement.GALLON, 1.0);
+        Length litre = new Length(VolumeMeasurement.LITRE, 3.78);
+        double compareAddition = gallon.addVolumes(gallon, litre);
+        Assert.assertEquals(compareAddition, 7.56, 0.0);
+    }
+
+    @Test
+    public void given1LitreAnd1000ML_ShouldReturnAdditionInLitres() {
+        Length litre = new Length(VolumeMeasurement.LITRE, 1.0);
+        Length millilitre = new Length(VolumeMeasurement.MILLI_LITRE, 1000.0);
+        double compareAddition = litre.addVolumes(litre, millilitre);
+        Assert.assertEquals(compareAddition, 2.0, 0.0);
+    }
+
 }
