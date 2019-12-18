@@ -14,4 +14,11 @@ public enum UnitMeasurement {
         return (Double.compare(Math.round(l1.value * l1.unit.unitValue), Math.round(l2.value * l2.unit.unitValue))) == 0;
     }
 
+    public double additionOfUnits(Length l1, Length l2) {
+        Double unitLength1 = l1.value * l1.unit.unitValue;
+        Double unitLength2 = l2.value * l2.unit.unitValue;
+        double unitLength = unitLength1 + unitLength2;
+        return Math.round(unitLength);
+    }
+
 }

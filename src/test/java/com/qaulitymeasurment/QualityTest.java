@@ -232,4 +232,36 @@ public class QualityTest {
         Assert.assertFalse(compareCheck);
     }
 
+    @Test
+    public void given2InchAnd2Inch_ShouldReturnAdditionInInch() {
+        Length inch1 = new Length(UnitMeasurement.INCH, 2.0);
+        Length inch2 = new Length(UnitMeasurement.INCH, 2.0);
+        double compareAddition = inch1.addUnit(inch1, inch2);
+        Assert.assertEquals(compareAddition, 4, 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_ShouldReturnAdditionInInch() {
+        Length feet = new Length(UnitMeasurement.FEET, 1.0);
+        Length inch = new Length(UnitMeasurement.INCH, 2.0);
+        double compareAddition = feet.addUnit(feet, inch);
+        Assert.assertEquals(compareAddition, 14, 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_ShouldReturnAdditionInInch() {
+        Length feet1 = new Length(UnitMeasurement.FEET, 1.0);
+        Length feet2 = new Length(UnitMeasurement.FEET, 1.0);
+        double compareAddition = feet1.addUnit(feet1, feet2);
+        Assert.assertEquals(compareAddition, 24, 0.0);
+    }
+
+    @Test
+    public void given2InchAnd2_5Centimeter_ShouldReturnAdditionInInch() {
+        Length inch = new Length(UnitMeasurement.INCH, 2.0);
+        Length centimeter = new Length(UnitMeasurement.CENTIMETER, 2.5);
+        double compareAddition = inch.addUnit(inch, centimeter);
+        Assert.assertEquals(compareAddition, 3, 0.0);
+    }
+
 }

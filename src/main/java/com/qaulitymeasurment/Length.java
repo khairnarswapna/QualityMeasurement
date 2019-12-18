@@ -14,6 +14,10 @@ public class Length {
         return this.unit.compare(thisQuantity, thatQuantity);
     }
 
+    public Double addUnit(Length thisQuantity, Length thatQuantity) {
+        return this.unit.additionOfUnits(thisQuantity, thatQuantity);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
