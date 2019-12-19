@@ -1,5 +1,7 @@
 package com.qaulitymeasurment;
 
+import static com.qaulitymeasurment.TemperatureMeasurement.FAHRENHEIT;
+
 public class Length {
 
     public Units unit;
@@ -18,8 +20,10 @@ public class Length {
         return Math.round(this.value * this.unit.compareUnits() + l2.value * l2.unit.compareUnits());
     }
 
-    public boolean compareTemperature(Length l2) {
-        return (Double.compare(Math.round((this.value - this.unit.compareUnits()) * 5 / 9), l2.value * l2.unit.compareUnits())) == 0;
+    public boolean convertTemperature(Length l2) {
+        if (this.unit.equals(FAHRENHEIT))
+            return (Double.compare(Math.round((this.value - this.unit.compareUnits()) * 5 / 9), l2.value * l2.unit.compareUnits())) == 0;
+        return (Double.compare(Math.round((this.value * this.unit.compareUnits())), l2.value - l2.unit.compareUnits()) * 5 / 9) == 0;
     }
 
     @Override

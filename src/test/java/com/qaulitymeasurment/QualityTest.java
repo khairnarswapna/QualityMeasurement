@@ -329,7 +329,15 @@ public class QualityTest {
     public void given212FahrenheitAnd100Celsius_ShouldReturnEquals() {
         Length fahrenheit = new Length(TemperatureMeasurement.FAHRENHEIT, 212.0);
         Length celsius = new Length(TemperatureMeasurement.CELSIUS, 100.0);
-        boolean compareCheck = fahrenheit.compareTemperature(celsius);
+        boolean compareCheck = fahrenheit.convertTemperature(celsius);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given100CelsiusAnd212Fahrenheit_ShouldReturnEquals() {
+        Length celsius = new Length(TemperatureMeasurement.CELSIUS, 100.0);
+        Length  fahrenheit = new Length(TemperatureMeasurement.FAHRENHEIT, 212.0);
+        boolean compareCheck = celsius.convertTemperature(fahrenheit);
         Assert.assertTrue(compareCheck);
     }
 
