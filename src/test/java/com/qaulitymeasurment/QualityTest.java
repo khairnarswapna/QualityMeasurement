@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class QualityTest {
 
+
     @Test
     public void given0FeetAnd0Feet_ShouldReturnTrue() {
         Length feet1 = new Length(UnitMeasurement.FEET, 0.0);
@@ -282,6 +283,7 @@ public class QualityTest {
 
     @Test
     public void given1GallonAnd3_78Litre_ShouldReturnAdditionInLitres() {
+
         Length gallon = new Length(VolumeMeasurement.GALLON, 1.0);
         Length litre = new Length(VolumeMeasurement.LITRE, 3.78);
         double compareAddition = gallon.addVolumes(gallon, litre);
@@ -294,6 +296,38 @@ public class QualityTest {
         Length millilitre = new Length(VolumeMeasurement.MILLI_LITRE, 1000.0);
         double compareAddition = litre.addVolumes(litre, millilitre);
         Assert.assertEquals(compareAddition, 2.0, 0.0);
+    }
+
+    @Test
+    public void given1KiloGramAnd1000Grams_ShouldReturnEquals() {
+        Length kilograms = new Length(WeightMeasurement.KILO_GRAMS, 1.0);
+        Length grams = new Length(WeightMeasurement.GRAMS, 1000.0);
+        boolean compareCheck = kilograms.compareWeight(kilograms, grams);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1TonneAnd1000KiloGrams_ShouldReturnEquals() {
+        Length tonnes = new Length(WeightMeasurement.TONNE, 1.0);
+        Length kilograms = new Length(WeightMeasurement.KILO_GRAMS, 1000.0);
+        boolean compareCheck = tonnes.compareWeight(tonnes, kilograms);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1TonneAnd1000Grams_ShouldReturnAdditionInKiloGrams() {
+        Length tonne = new Length(WeightMeasurement.TONNE, 1.0);
+        Length grams = new Length(WeightMeasurement.GRAMS, 1000.0);
+        double compareAddition = tonne.addWeights(tonne, grams);
+        Assert.assertEquals(compareAddition, 1001.0, 0.0);
+    }
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_ShouldReturnEquals() {
+        Length fahrenheit = new Length(TemperatureMeasurement.FAHRENHEIT, 212.0);
+        Length celsius = new Length(TemperatureMeasurement.CELSIUS, 100.0);
+        boolean compareCheck = fahrenheit.compareTemperature(fahrenheit, celsius);
+        Assert.assertTrue(compareCheck);
     }
 
 }

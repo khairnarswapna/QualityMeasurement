@@ -20,5 +20,4 @@ public enum UnitMeasurement {
         double unitLength = unitLength1 + unitLength2;
         return Math.round(unitLength);
     }
-
 }

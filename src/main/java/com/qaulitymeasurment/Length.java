@@ -4,6 +4,8 @@ public class Length {
 
     public UnitMeasurement unit = null;
     public VolumeMeasurement volume = null;
+    public WeightMeasurement weight = null;
+    public TemperatureMeasurement temperature = null;
     public final double value;
 
     public Length(UnitMeasurement unit, double value) {
@@ -16,6 +18,16 @@ public class Length {
         this.value = value;
     }
 
+    public Length(WeightMeasurement weight, double value) {
+        this.weight = weight;
+        this.value = value;
+    }
+
+    public Length(TemperatureMeasurement temperature, double value) {
+        this.temperature = temperature;
+        this.value = value;
+    }
+
     public boolean compareUnit(Length thisQuantity, Length thatQuantity) {
         return this.unit.compareUnits(thisQuantity, thatQuantity);
     }
@@ -24,12 +36,24 @@ public class Length {
         return this.volume.compareVolume(thisVolume, thatVolume);
     }
 
+    public boolean compareWeight(Length thisWeight, Length thatWeight) {
+        return this.weight.compareWeight(thisWeight, thatWeight);
+    }
+
+    public boolean compareTemperature(Length thisTemperature, Length thatTemperature) {
+        return this.temperature.compareTemperature(thisTemperature, thatTemperature);
+    }
+
     public Double addUnit(Length thisQuantity, Length thatQuantity) {
         return this.unit.additionOfUnits(thisQuantity, thatQuantity);
     }
 
     public Double addVolumes(Length thisVolume, Length thatVolume) {
         return this.volume.additionOfVolumes(thisVolume, thatVolume);
+    }
+
+    public Double addWeights(Length thisWeight, Length thatWeight) {
+        return this.weight.additionOfWeights(thisWeight, thatWeight);
     }
 
     @Override
