@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class QualityTest {
 
-
+    // Unit Measurement
     @Test
     public void given0FeetAnd0Feet_ShouldReturnTrue() {
         Length feet1 = new Length(UnitMeasurement.FEET, 0.0);
@@ -91,7 +91,7 @@ public class QualityTest {
         Assert.assertEquals(inch1, inch2);
     }
 
-    @Test
+        @Test
     public void given1InchAndAnotherClassObject_ShouldNotEquals() {
         Length inch1 = new Length(UnitMeasurement.INCH, 0.0);
         Integer inch2 = 10;
@@ -117,7 +117,7 @@ public class QualityTest {
     public void given0FeetAnd0Inch_ShouldReturnEqualLength() {
         Length feet = new Length(UnitMeasurement.FEET, 0.0);
         Length inch = new Length(UnitMeasurement.INCH, 0.0);
-        boolean compareCheck = feet.compareUnit(feet, inch);
+        boolean compareCheck = feet.compareUnit(inch);
         Assert.assertTrue(compareCheck);
     }
 
@@ -125,7 +125,7 @@ public class QualityTest {
     public void given1FeetAnd1Inch_ShouldReturnNotEqualLength() {
         Length feet = new Length(UnitMeasurement.FEET, 1.0);
         Length inch = new Length(UnitMeasurement.INCH, 1.0);
-        boolean compareCheck = feet.compareUnit(feet, inch);
+        boolean compareCheck = feet.compareUnit(inch);
         Assert.assertFalse(compareCheck);
     }
 
@@ -133,7 +133,7 @@ public class QualityTest {
     public void given1FeetAnd1Feet_ShouldReturnEqualLength() {
         Length feet1 = new Length(UnitMeasurement.FEET, 1.0);
         Length feet2 = new Length(UnitMeasurement.FEET, 1.0);
-        boolean compareCheck = feet1.compareUnit(feet1, feet2);
+        boolean compareCheck = feet1.compareUnit(feet2);
         Assert.assertTrue(compareCheck);
     }
 
@@ -141,7 +141,7 @@ public class QualityTest {
     public void given1InchAnd1Inch_ShouldReturnEqualLength() {
         Length inch1 = new Length(UnitMeasurement.INCH, 1.0);
         Length inch2 = new Length(UnitMeasurement.INCH, 1.0);
-        boolean compareCheck = inch1.compareUnit(inch1, inch2);
+        boolean compareCheck = inch1.compareUnit(inch2);
         Assert.assertTrue(compareCheck);
     }
 
@@ -149,7 +149,7 @@ public class QualityTest {
     public void given12InchAnd1Feet_ShouldReturnNotEqualLength() {
         Length inch = new Length(UnitMeasurement.INCH, 12.0);
         Length feet = new Length(UnitMeasurement.FEET, 1.0);
-        boolean compareCheck = inch.compareUnit(inch, feet);
+        boolean compareCheck = inch.compareUnit(feet);
         Assert.assertTrue(compareCheck);
     }
 
@@ -157,7 +157,7 @@ public class QualityTest {
     public void given3FeetAnd1Yard_ShouldReturnEqualLength() {
         Length yard = new Length(UnitMeasurement.YARD, 1.0);
         Length feet = new Length(UnitMeasurement.FEET, 3.0);
-        boolean compareCheck = yard.compareUnit(yard, feet);
+        boolean compareCheck = yard.compareUnit(feet);
         Assert.assertTrue(compareCheck);
     }
 
@@ -165,7 +165,7 @@ public class QualityTest {
     public void given1FeetAnd3Yard_ShouldReturnNotEqualLength() {
         Length yard = new Length(UnitMeasurement.YARD, 3.0);
         Length feet = new Length(UnitMeasurement.FEET, 1.0);
-        boolean compareCheck = yard.compareUnit(yard, feet);
+        boolean compareCheck = yard.compareUnit(feet);
         Assert.assertFalse(compareCheck);
     }
 
@@ -173,7 +173,7 @@ public class QualityTest {
     public void given1InchAnd1Yard_ShouldReturnNotEqualLength() {
         Length yard = new Length(UnitMeasurement.YARD, 1.0);
         Length inch = new Length(UnitMeasurement.INCH, 1.0);
-        boolean compareCheck = yard.compareUnit(yard, inch);
+        boolean compareCheck = yard.compareUnit(inch);
         Assert.assertFalse(compareCheck);
     }
 
@@ -181,7 +181,7 @@ public class QualityTest {
     public void given1YardAnd36Inch_ShouldReturnEqualLength() {
         Length yard = new Length(UnitMeasurement.YARD, 1.0);
         Length inch = new Length(UnitMeasurement.INCH, 36.0);
-        boolean compareCheck = yard.compareUnit(yard, inch);
+        boolean compareCheck = yard.compareUnit(inch);
         Assert.assertTrue(compareCheck);
     }
 
@@ -189,7 +189,7 @@ public class QualityTest {
     public void given36InchAnd1Yard_ShouldReturnEqualLength() {
         Length inch = new Length(UnitMeasurement.INCH, 36.0);
         Length yard = new Length(UnitMeasurement.YARD, 1.0);
-        boolean compareCheck = inch.compareUnit(inch, yard);
+        boolean compareCheck = inch.compareUnit(yard);
         Assert.assertTrue(compareCheck);
     }
 
@@ -197,7 +197,7 @@ public class QualityTest {
     public void given1YardAnd3Feet_ShouldReturnEqualLength() {
         Length yard = new Length(UnitMeasurement.YARD, 1.0);
         Length feet = new Length(UnitMeasurement.FEET, 3.0);
-        boolean compareCheck = yard.compareUnit(yard, feet);
+        boolean compareCheck = yard.compareUnit(feet);
         Assert.assertTrue(compareCheck);
     }
 
@@ -205,7 +205,7 @@ public class QualityTest {
     public void given1CentimeterAnd1Centimeter_ShouldReturnEqualLength() {
         Length centimeter1 = new Length(UnitMeasurement.CENTIMETER, 2.0);
         Length centimeter2 = new Length(UnitMeasurement.CENTIMETER, 2.0);
-        boolean compareCheck = centimeter1.compareUnit(centimeter1, centimeter2);
+        boolean compareCheck = centimeter1.compareUnit(centimeter2);
         Assert.assertTrue(compareCheck);
     }
 
@@ -213,7 +213,7 @@ public class QualityTest {
     public void given2InchAnd5Centimeter_ShouldReturnEqualLength() {
         Length inch = new Length(UnitMeasurement.INCH, 2.0);
         Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.0);
-        boolean compareCheck = inch.compareUnit(inch, centimeter);
+        boolean compareCheck = inch.compareUnit(centimeter);
         Assert.assertTrue(compareCheck);
     }
 
@@ -221,7 +221,7 @@ public class QualityTest {
     public void given5CentimeterAnd2Inch_ShouldReturnEqualLength() {
         Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.0);
         Length inch = new Length(UnitMeasurement.INCH, 1.968505);
-        boolean compareCheck = centimeter.compareUnit(centimeter, inch);
+        boolean compareCheck = centimeter.compareUnit(inch);
         Assert.assertTrue(compareCheck);
     }
 
@@ -229,7 +229,7 @@ public class QualityTest {
     public void given5CentimeterAnd3Inch_ShouldReturnNotEqualLength() {
         Length centimeter = new Length(UnitMeasurement.CENTIMETER, 5.08);
         Length inch = new Length(UnitMeasurement.INCH, 3.0);
-        boolean compareCheck = centimeter.compareUnit(centimeter, inch);
+        boolean compareCheck = centimeter.compareUnit(inch);
         Assert.assertFalse(compareCheck);
     }
 
@@ -237,7 +237,7 @@ public class QualityTest {
     public void given2InchAnd2Inch_ShouldReturnAdditionInInch() {
         Length inch1 = new Length(UnitMeasurement.INCH, 2.0);
         Length inch2 = new Length(UnitMeasurement.INCH, 2.0);
-        double compareAddition = inch1.addUnit(inch1, inch2);
+        double compareAddition = inch1.addUnit(inch2);
         Assert.assertEquals(compareAddition, 4, 0.0);
     }
 
@@ -245,7 +245,7 @@ public class QualityTest {
     public void given1FeetAnd2Inch_ShouldReturnAdditionInInch() {
         Length feet = new Length(UnitMeasurement.FEET, 1.0);
         Length inch = new Length(UnitMeasurement.INCH, 2.0);
-        double compareAddition = feet.addUnit(feet, inch);
+        double compareAddition = feet.addUnit(inch);
         Assert.assertEquals(compareAddition, 14, 0.0);
     }
 
@@ -253,7 +253,7 @@ public class QualityTest {
     public void given1FeetAnd1Feet_ShouldReturnAdditionInInch() {
         Length feet1 = new Length(UnitMeasurement.FEET, 1.0);
         Length feet2 = new Length(UnitMeasurement.FEET, 1.0);
-        double compareAddition = feet1.addUnit(feet1, feet2);
+        double compareAddition = feet1.addUnit(feet2);
         Assert.assertEquals(compareAddition, 24, 0.0);
     }
 
@@ -261,15 +261,16 @@ public class QualityTest {
     public void given2InchAnd2_5Centimeter_ShouldReturnAdditionInInch() {
         Length inch = new Length(UnitMeasurement.INCH, 2.0);
         Length centimeter = new Length(UnitMeasurement.CENTIMETER, 2.5);
-        double compareAddition = inch.addUnit(inch, centimeter);
+        double compareAddition = inch.addUnit(centimeter);
         Assert.assertEquals(compareAddition, 3, 0.0);
     }
 
+    // Volume Measurement
     @Test
     public void given1GallonAnd3_78Litre_ShouldReturnEquals() {
         Length gallon = new Length(VolumeMeasurement.GALLON, 1.0);
         Length litre = new Length(VolumeMeasurement.LITRE, 3.78);
-        boolean compareCheck = gallon.compareVolume(gallon, litre);
+        boolean compareCheck = gallon.compareUnit(litre);
         Assert.assertTrue(compareCheck);
     }
 
@@ -277,7 +278,7 @@ public class QualityTest {
     public void given1LitreAnd1000ML_ShouldReturnEquals() {
         Length litre = new Length(VolumeMeasurement.LITRE, 1.0);
         Length milliLitre = new Length(VolumeMeasurement.MILLI_LITRE, 1000.0);
-        boolean compareCheck = litre.compareVolume(litre, milliLitre);
+        boolean compareCheck = litre.compareUnit(milliLitre);
         Assert.assertTrue(compareCheck);
     }
 
@@ -286,23 +287,24 @@ public class QualityTest {
 
         Length gallon = new Length(VolumeMeasurement.GALLON, 1.0);
         Length litre = new Length(VolumeMeasurement.LITRE, 3.78);
-        double compareAddition = gallon.addVolumes(gallon, litre);
-        Assert.assertEquals(compareAddition, 7.56, 0.0);
+        double compareAddition = gallon.addUnit(litre);
+        Assert.assertEquals(compareAddition, 8.0, 0.0);
     }
 
     @Test
     public void given1LitreAnd1000ML_ShouldReturnAdditionInLitres() {
         Length litre = new Length(VolumeMeasurement.LITRE, 1.0);
         Length millilitre = new Length(VolumeMeasurement.MILLI_LITRE, 1000.0);
-        double compareAddition = litre.addVolumes(litre, millilitre);
+        double compareAddition = litre.addUnit(millilitre);
         Assert.assertEquals(compareAddition, 2.0, 0.0);
     }
 
+    // Weight Measurement
     @Test
     public void given1KiloGramAnd1000Grams_ShouldReturnEquals() {
         Length kilograms = new Length(WeightMeasurement.KILO_GRAMS, 1.0);
         Length grams = new Length(WeightMeasurement.GRAMS, 1000.0);
-        boolean compareCheck = kilograms.compareWeight(kilograms, grams);
+        boolean compareCheck = kilograms.compareUnit(grams);
         Assert.assertTrue(compareCheck);
     }
 
@@ -310,7 +312,7 @@ public class QualityTest {
     public void given1TonneAnd1000KiloGrams_ShouldReturnEquals() {
         Length tonnes = new Length(WeightMeasurement.TONNE, 1.0);
         Length kilograms = new Length(WeightMeasurement.KILO_GRAMS, 1000.0);
-        boolean compareCheck = tonnes.compareWeight(tonnes, kilograms);
+        boolean compareCheck = tonnes.compareUnit(kilograms);
         Assert.assertTrue(compareCheck);
     }
 
@@ -318,15 +320,16 @@ public class QualityTest {
     public void given1TonneAnd1000Grams_ShouldReturnAdditionInKiloGrams() {
         Length tonne = new Length(WeightMeasurement.TONNE, 1.0);
         Length grams = new Length(WeightMeasurement.GRAMS, 1000.0);
-        double compareAddition = tonne.addWeights(tonne, grams);
+        double compareAddition = tonne.addUnit(grams);
         Assert.assertEquals(compareAddition, 1001.0, 0.0);
     }
 
+    // Temperature Measurement
     @Test
     public void given212FahrenheitAnd100Celsius_ShouldReturnEquals() {
         Length fahrenheit = new Length(TemperatureMeasurement.FAHRENHEIT, 212.0);
         Length celsius = new Length(TemperatureMeasurement.CELSIUS, 100.0);
-        boolean compareCheck = fahrenheit.compareTemperature(fahrenheit, celsius);
+        boolean compareCheck = fahrenheit.compareTemperature(celsius);
         Assert.assertTrue(compareCheck);
     }
 

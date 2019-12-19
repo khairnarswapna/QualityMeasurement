@@ -2,58 +2,24 @@ package com.qaulitymeasurment;
 
 public class Length {
 
-    public UnitMeasurement unit = null;
-    public VolumeMeasurement volume = null;
-    public WeightMeasurement weight = null;
-    public TemperatureMeasurement temperature = null;
+    public Units unit;
     public final double value;
 
-    public Length(UnitMeasurement unit, double value) {
+    public Length(Units unit, double value) {
         this.unit = unit;
         this.value = value;
     }
 
-    public Length(VolumeMeasurement volume, double value) {
-        this.volume = volume;
-        this.value = value;
+    public boolean compareUnit(Length thatQuantity) {
+        return (Double.compare(Math.round(this.value * this.unit.compareUnits()), Math.round(thatQuantity.value * thatQuantity.unit.compareUnits()))) == 0;
     }
 
-    public Length(WeightMeasurement weight, double value) {
-        this.weight = weight;
-        this.value = value;
+    public long addUnit(Length l2) {
+        return Math.round(this.value * this.unit.compareUnits() + l2.value * l2.unit.compareUnits());
     }
 
-    public Length(TemperatureMeasurement temperature, double value) {
-        this.temperature = temperature;
-        this.value = value;
-    }
-
-    public boolean compareUnit(Length thisQuantity, Length thatQuantity) {
-        return this.unit.compareUnits(thisQuantity, thatQuantity);
-    }
-
-    public boolean compareVolume(Length thisVolume, Length thatVolume) {
-        return this.volume.compareVolume(thisVolume, thatVolume);
-    }
-
-    public boolean compareWeight(Length thisWeight, Length thatWeight) {
-        return this.weight.compareWeight(thisWeight, thatWeight);
-    }
-
-    public boolean compareTemperature(Length thisTemperature, Length thatTemperature) {
-        return this.temperature.compareTemperature(thisTemperature, thatTemperature);
-    }
-
-    public Double addUnit(Length thisQuantity, Length thatQuantity) {
-        return this.unit.additionOfUnits(thisQuantity, thatQuantity);
-    }
-
-    public Double addVolumes(Length thisVolume, Length thatVolume) {
-        return this.volume.additionOfVolumes(thisVolume, thatVolume);
-    }
-
-    public Double addWeights(Length thisWeight, Length thatWeight) {
-        return this.weight.additionOfWeights(thisWeight, thatWeight);
+    public boolean compareTemperature(Length l2) {
+        return (Double.compare(Math.round((this.value - this.unit.compareUnits()) * 5 / 9), l2.value * l2.unit.compareUnits())) == 0;
     }
 
     @Override

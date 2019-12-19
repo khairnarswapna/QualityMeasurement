@@ -1,6 +1,6 @@
 package com.qaulitymeasurment;
 
-public enum TemperatureMeasurement {
+public enum TemperatureMeasurement implements Units {
 
     FAHRENHEIT(32.0), CELSIUS(1);
 
@@ -10,7 +10,9 @@ public enum TemperatureMeasurement {
         this.temperature = temperature;
     }
 
-    public boolean compareTemperature(Length t1, Length t2) {
-        return (Double.compare(Math.round((t1.value - t1.temperature.temperature) * 5 / 9), t2.value * t2.temperature.temperature)) == 0;
+    @Override
+    public double compareUnits() {
+        return this.temperature;
     }
+
 }
