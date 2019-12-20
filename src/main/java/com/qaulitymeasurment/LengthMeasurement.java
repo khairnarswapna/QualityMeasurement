@@ -1,12 +1,12 @@
 package com.qaulitymeasurment;
 
-public enum UnitMeasurement implements Units {
+public enum LengthMeasurement implements Units {
 
     FEET(12.0), INCH(1.0), YARD(36.0), CENTIMETER(0.393701);
 
     private final double unitValue;
 
-    UnitMeasurement(double unitValue) {
+    LengthMeasurement(double unitValue) {
         this.unitValue = unitValue;
     }
 
